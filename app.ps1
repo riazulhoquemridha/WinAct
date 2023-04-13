@@ -4,7 +4,6 @@ $ErrorActionPreference = "Stop"
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
 $DownloadURL = 'https://raw.githubusercontent.com/riazulhoquemridha/WinAct/master/MAS/All-In-One-Version/MAS_AIO.cmd'
-$DownloadURL2 = 'https://gitlab.com/massgrave/microsoft-activation-scripts/-/raw/master/MAS/All-In-One-Version/MAS_AIO.cmd'
 
 $rand = Get-Random -Maximum 1000
 $isAdmin = [bool]([Security.Principal.WindowsIdentity]::GetCurrent().Groups -match 'S-1-5-32-544')
@@ -14,7 +13,7 @@ try {
     $response = Invoke-WebRequest -Uri $DownloadURL -UseBasicParsing
 }
 catch {
-    $response = Invoke-WebRequest -Uri $DownloadURL2 -UseBasicParsing
+    "Error"
 }
 
 $ScriptArgs = "$args "
